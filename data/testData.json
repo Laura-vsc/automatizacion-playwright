@@ -1,0 +1,476 @@
+{
+  "proveedores": {
+    "86":  "AMADEUS",
+    "97":  "SABRE Jetsmart",
+    "146": "LATAM NDC",
+    "151": "SABRE NDC",
+    "153": "AMADEUS NDC",
+    "147": "COPA NDC",
+    "93":  "KIU",
+    "156": "GALILEO NDC",
+    "100": "GALILEO",
+    "157": "JETSMART",
+    "158": "GALILEO JSON",
+    "161": "WINGO"
+  },
+
+  "roundtrip": [
+    {
+      "id": "TC001",
+      "tipoViaje": "roundtrip",
+      "tipoRuta": "nacional",
+      "proveedor": "86",
+      "proveedorNombre": "AMADEUS",
+      "usarRutaAleatoria": false,
+      "origen": "BOG",
+      "destino": "MDE",
+      "fechas": { "fechaSalidaOffset": 20, "fechaRegresoOffset": 25 },
+      "pasajeros": { "adultos": 2, "ninos": [{ "edad": 7 }], "infantes": [] }
+    },
+    {
+      "id": "TC002",
+      "tipoViaje": "roundtrip",
+      "tipoRuta": "internacional",
+      "proveedor": "97",
+      "proveedorNombre": "SABRE Jetsmart",
+      "usarRutaAleatoria": true,
+      "origen": null,
+      "destino": null,
+      "fechas": { "fechaSalidaOffset": 21, "fechaRegresoOffset": 28 },
+      "pasajeros": { "adultos": 3, "ninos": [{ "edad": 4 }, { "edad": 9 }], "infantes": [] }
+    },
+    {
+      "id": "TC003",
+      "tipoViaje": "roundtrip",
+      "tipoRuta": "nacional",
+      "proveedor": "146",
+      "proveedorNombre": "LATAM NDC",
+      "usarRutaAleatoria": true,
+      "origen": null,
+      "destino": null,
+      "fechas": { "fechaSalidaOffset": 22, "fechaRegresoOffset": 27 },
+      "pasajeros": { "adultos": 2, "ninos": [], "infantes": [{ "edad": 1 }] }
+    },
+    {
+      "id": "TC004",
+      "tipoViaje": "roundtrip",
+      "tipoRuta": "internacional",
+      "proveedor": "151",
+      "proveedorNombre": "SABRE NDC",
+      "usarRutaAleatoria": false,
+      "origen": "BOG",
+      "destino": "MIA",
+      "fechas": { "fechaSalidaOffset": 20, "fechaRegresoOffset": 27 },
+      "pasajeros": { "adultos": 4, "ninos": [{ "edad": 6 }, { "edad": 11 }], "infantes": [] }
+    },
+    {
+      "id": "TC005",
+      "tipoViaje": "roundtrip",
+      "tipoRuta": "nacional",
+      "proveedor": "153",
+      "proveedorNombre": "AMADEUS NDC",
+      "usarRutaAleatoria": true,
+      "origen": null,
+      "destino": null,
+      "fechas": { "fechaSalidaOffset": 23, "fechaRegresoOffset": 28 },
+      "pasajeros": { "adultos": 3, "ninos": [{ "edad": 3 }], "infantes": [{ "edad": 0 }] }
+    },
+    {
+      "id": "TC006",
+      "tipoViaje": "roundtrip",
+      "tipoRuta": "internacional",
+      "proveedor": "147",
+      "proveedorNombre": "COPA NDC",
+      "usarRutaAleatoria": false,
+      "origen": "BOG",
+      "destino": "PTY",
+      "fechas": { "fechaSalidaOffset": 20, "fechaRegresoOffset": 27 },
+      "pasajeros": { "adultos": 2, "ninos": [{ "edad": 5 }, { "edad": 8 }, { "edad": 10 }], "infantes": [] }
+    },
+    {
+      "id": "TC007",
+      "tipoViaje": "roundtrip",
+      "tipoRuta": "nacional",
+      "proveedor": "93",
+      "proveedorNombre": "KIU",
+      "usarRutaAleatoria": true,
+      "origen": null,
+      "destino": null,
+      "fechas": { "fechaSalidaOffset": 24, "fechaRegresoOffset": 29 },
+      "pasajeros": { "adultos": 1, "ninos": [], "infantes": [] }
+    },
+    {
+      "id": "TC008",
+      "tipoViaje": "roundtrip",
+      "tipoRuta": "internacional",
+      "proveedor": "156",
+      "proveedorNombre": "GALILEO NDC",
+      "usarRutaAleatoria": false,
+      "origen": "BOG",
+      "destino": "MAD",
+      "fechas": { "fechaSalidaOffset": 25, "fechaRegresoOffset": 30 },
+      "pasajeros": { "adultos": 2, "ninos": [{ "edad": 7 }, { "edad": 9 }], "infantes": [{ "edad": 1 }] }
+    },
+    {
+      "id": "TC009",
+      "tipoViaje": "roundtrip",
+      "tipoRuta": "nacional",
+      "proveedor": "100",
+      "proveedorNombre": "GALILEO",
+      "usarRutaAleatoria": true,
+      "origen": null,
+      "destino": null,
+      "fechas": { "fechaSalidaOffset": 20, "fechaRegresoOffset": 26 },
+      "pasajeros": { "adultos": 5, "ninos": [{ "edad": 4 }], "infantes": [] }
+    },
+    {
+      "id": "TC010",
+      "tipoViaje": "roundtrip",
+      "tipoRuta": "nacional",
+      "proveedor": "157",
+      "proveedorNombre": "JETSMART",
+      "usarRutaAleatoria": false,
+      "origen": "BOG",
+      "destino": "CTG",
+      "fechas": { "fechaSalidaOffset": 22, "fechaRegresoOffset": 27 },
+      "pasajeros": { "adultos": 2, "ninos": [], "infantes": [] }
+    },
+    {
+      "id": "TC011",
+      "tipoViaje": "roundtrip",
+      "tipoRuta": "internacional",
+      "proveedor": "158",
+      "proveedorNombre": "GALILEO JSON",
+      "usarRutaAleatoria": true,
+      "origen": null,
+      "destino": null,
+      "fechas": { "fechaSalidaOffset": 21, "fechaRegresoOffset": 28 },
+      "pasajeros": { "adultos": 3, "ninos": [{ "edad": 6 }], "infantes": [] }
+    },
+    {
+      "id": "TC012",
+      "tipoViaje": "roundtrip",
+      "tipoRuta": "nacional",
+      "proveedor": "161",
+      "proveedorNombre": "WINGO",
+      "usarRutaAleatoria": false,
+      "origen": "BOG",
+      "destino": "CLO",
+      "fechas": { "fechaSalidaOffset": 20, "fechaRegresoOffset": 25 },
+      "pasajeros": { "adultos": 4, "ninos": [{ "edad": 3 }, { "edad": 10 }], "infantes": [] }
+    }
+  ],
+
+  "oneway": [
+    {
+      "id": "TC013",
+      "tipoViaje": "oneway",
+      "tipoRuta": "nacional",
+      "proveedor": "86",
+      "proveedorNombre": "AMADEUS",
+      "usarRutaAleatoria": true,
+      "origen": null,
+      "destino": null,
+      "fechas": { "fechaSalidaOffset": 20, "fechaRegresoOffset": null },
+      "pasajeros": { "adultos": 1, "ninos": [{ "edad": 8 }], "infantes": [] }
+    },
+    {
+      "id": "TC014",
+      "tipoViaje": "oneway",
+      "tipoRuta": "internacional",
+      "proveedor": "97",
+      "proveedorNombre": "SABRE Jetsmart",
+      "usarRutaAleatoria": false,
+      "origen": "BOG",
+      "destino": "LIM",
+      "fechas": { "fechaSalidaOffset": 21, "fechaRegresoOffset": null },
+      "pasajeros": { "adultos": 2, "ninos": [], "infantes": [] }
+    },
+    {
+      "id": "TC015",
+      "tipoViaje": "oneway",
+      "tipoRuta": "nacional",
+      "proveedor": "146",
+      "proveedorNombre": "LATAM NDC",
+      "usarRutaAleatoria": false,
+      "origen": "MDE",
+      "destino": "CTG",
+      "fechas": { "fechaSalidaOffset": 22, "fechaRegresoOffset": null },
+      "pasajeros": { "adultos": 3, "ninos": [{ "edad": 5 }, { "edad": 9 }], "infantes": [] }
+    },
+    {
+      "id": "TC016",
+      "tipoViaje": "oneway",
+      "tipoRuta": "internacional",
+      "proveedor": "151",
+      "proveedorNombre": "SABRE NDC",
+      "usarRutaAleatoria": true,
+      "origen": null,
+      "destino": null,
+      "fechas": { "fechaSalidaOffset": 22, "fechaRegresoOffset": null },
+      "pasajeros": { "adultos": 2, "ninos": [], "infantes": [{ "edad": 1 }] }
+    },
+    {
+      "id": "TC017",
+      "tipoViaje": "oneway",
+      "tipoRuta": "nacional",
+      "proveedor": "153",
+      "proveedorNombre": "AMADEUS NDC",
+      "usarRutaAleatoria": true,
+      "origen": null,
+      "destino": null,
+      "fechas": { "fechaSalidaOffset": 20, "fechaRegresoOffset": null },
+      "pasajeros": { "adultos": 6, "ninos": [{ "edad": 2 }], "infantes": [] }
+    },
+    {
+      "id": "TC018",
+      "tipoViaje": "oneway",
+      "tipoRuta": "internacional",
+      "proveedor": "147",
+      "proveedorNombre": "COPA NDC",
+      "usarRutaAleatoria": false,
+      "origen": "CLO",
+      "destino": "UIO",
+      "fechas": { "fechaSalidaOffset": 23, "fechaRegresoOffset": null },
+      "pasajeros": { "adultos": 2, "ninos": [{ "edad": 6 }], "infantes": [] }
+    },
+    {
+      "id": "TC019",
+      "tipoViaje": "oneway",
+      "tipoRuta": "nacional",
+      "proveedor": "93",
+      "proveedorNombre": "KIU",
+      "usarRutaAleatoria": false,
+      "origen": "BAQ",
+      "destino": "BOG",
+      "fechas": { "fechaSalidaOffset": 27, "fechaRegresoOffset": null },
+      "pasajeros": { "adultos": 4, "ninos": [], "infantes": [] }
+    },
+    {
+      "id": "TC020",
+      "tipoViaje": "oneway",
+      "tipoRuta": "internacional",
+      "proveedor": "156",
+      "proveedorNombre": "GALILEO NDC",
+      "usarRutaAleatoria": true,
+      "origen": null,
+      "destino": null,
+      "fechas": { "fechaSalidaOffset": 24, "fechaRegresoOffset": null },
+      "pasajeros": { "adultos": 2, "ninos": [{ "edad": 4 }, { "edad": 11 }], "infantes": [] }
+    },
+    {
+      "id": "TC021",
+      "tipoViaje": "oneway",
+      "tipoRuta": "nacional",
+      "proveedor": "100",
+      "proveedorNombre": "GALILEO",
+      "usarRutaAleatoria": true,
+      "origen": null,
+      "destino": null,
+      "fechas": { "fechaSalidaOffset": 25, "fechaRegresoOffset": null },
+      "pasajeros": { "adultos": 3, "ninos": [], "infantes": [{ "edad": 0 }] }
+    },
+    {
+      "id": "TC022",
+      "tipoViaje": "oneway",
+      "tipoRuta": "nacional",
+      "proveedor": "157",
+      "proveedorNombre": "JETSMART",
+      "usarRutaAleatoria": false,
+      "origen": "BOG",
+      "destino": "CLO",
+      "fechas": { "fechaSalidaOffset": 20, "fechaRegresoOffset": null },
+      "pasajeros": { "adultos": 2, "ninos": [{ "edad": 3 }], "infantes": [] }
+    },
+    {
+      "id": "TC023",
+      "tipoViaje": "oneway",
+      "tipoRuta": "internacional",
+      "proveedor": "158",
+      "proveedorNombre": "GALILEO JSON",
+      "usarRutaAleatoria": false,
+      "origen": "BOG",
+      "destino": "SCL",
+      "fechas": { "fechaSalidaOffset": 24, "fechaRegresoOffset": null },
+      "pasajeros": { "adultos": 5, "ninos": [{ "edad": 7 }], "infantes": [] }
+    },
+    {
+      "id": "TC024",
+      "tipoViaje": "oneway",
+      "tipoRuta": "nacional",
+      "proveedor": "161",
+      "proveedorNombre": "WINGO",
+      "usarRutaAleatoria": true,
+      "origen": null,
+      "destino": null,
+      "fechas": { "fechaSalidaOffset": 21, "fechaRegresoOffset": null },
+      "pasajeros": { "adultos": 1, "ninos": [], "infantes": [] }
+    }
+  ],
+
+  "multidestino": [
+    {
+      "id": "TC025",
+      "tipoViaje": "multidestino",
+      "tipoRuta": "nacional",
+      "proveedor": "86",
+      "proveedorNombre": "AMADEUS",
+      "usarRutaAleatoria": false,
+      "tramos": [
+        { "origen": "BOG", "destino": "MDE", "fechaSalidaOffset": 20 },
+        { "origen": "MDE", "destino": "CTG", "fechaSalidaOffset": 25 },
+        { "origen": "CTG", "destino": "BOG", "fechaSalidaOffset": 30 }
+      ],
+      "pasajeros": { "adultos": 2, "ninos": [], "infantes": [] }
+    },
+    {
+      "id": "TC026",
+      "tipoViaje": "multidestino",
+      "tipoRuta": "internacional",
+      "proveedor": "97",
+      "proveedorNombre": "SABRE Jetsmart",
+      "usarRutaAleatoria": false,
+      "tramos": [
+        { "origen": "BOG", "destino": "MIA", "fechaSalidaOffset": 20 },
+        { "origen": "MIA", "destino": "MAD", "fechaSalidaOffset": 25 },
+        { "origen": "MAD", "destino": "BOG", "fechaSalidaOffset": 30 }
+      ],
+      "pasajeros": { "adultos": 2, "ninos": [{ "edad": 6 }], "infantes": [] }
+    },
+    {
+      "id": "TC027",
+      "tipoViaje": "multidestino",
+      "tipoRuta": "nacional",
+      "proveedor": "146",
+      "proveedorNombre": "LATAM NDC",
+      "usarRutaAleatoria": false,
+      "tramos": [
+        { "origen": "BOG", "destino": "CLO", "fechaSalidaOffset": 20 },
+        { "origen": "CLO", "destino": "SMR", "fechaSalidaOffset": 26 }
+      ],
+      "pasajeros": { "adultos": 3, "ninos": [{ "edad": 10 }], "infantes": [] }
+    },
+    {
+      "id": "TC028",
+      "tipoViaje": "multidestino",
+      "tipoRuta": "internacional",
+      "proveedor": "151",
+      "proveedorNombre": "SABRE NDC",
+      "usarRutaAleatoria": false,
+      "tramos": [
+        { "origen": "BOG", "destino": "LIM", "fechaSalidaOffset": 20 },
+        { "origen": "LIM", "destino": "SCL", "fechaSalidaOffset": 25 },
+        { "origen": "SCL", "destino": "BOG", "fechaSalidaOffset": 30 }
+      ],
+      "pasajeros": { "adultos": 2, "ninos": [], "infantes": [] }
+    },
+    {
+      "id": "TC029",
+      "tipoViaje": "multidestino",
+      "tipoRuta": "nacional",
+      "proveedor": "153",
+      "proveedorNombre": "AMADEUS NDC",
+      "usarRutaAleatoria": false,
+      "tramos": [
+        { "origen": "BOG", "destino": "LET", "fechaSalidaOffset": 21 },
+        { "origen": "LET", "destino": "BOG", "fechaSalidaOffset": 27 }
+      ],
+      "pasajeros": { "adultos": 4, "ninos": [{ "edad": 5 }, { "edad": 8 }], "infantes": [] }
+    },
+    {
+      "id": "TC030",
+      "tipoViaje": "multidestino",
+      "tipoRuta": "internacional",
+      "proveedor": "147",
+      "proveedorNombre": "COPA NDC",
+      "usarRutaAleatoria": false,
+      "tramos": [
+        { "origen": "BOG", "destino": "PTY", "fechaSalidaOffset": 22 },
+        { "origen": "PTY", "destino": "NYC", "fechaSalidaOffset": 28 }
+      ],
+      "pasajeros": { "adultos": 2, "ninos": [], "infantes": [] }
+    },
+    {
+      "id": "TC031",
+      "tipoViaje": "multidestino",
+      "tipoRuta": "nacional",
+      "proveedor": "93",
+      "proveedorNombre": "KIU",
+      "usarRutaAleatoria": false,
+      "tramos": [
+        { "origen": "PEI", "destino": "BOG", "fechaSalidaOffset": 20 },
+        { "origen": "BOG", "destino": "MDE", "fechaSalidaOffset": 25 },
+        { "origen": "MDE", "destino": "PEI", "fechaSalidaOffset": 29 }
+      ],
+      "pasajeros": { "adultos": 1, "ninos": [{ "edad": 3 }], "infantes": [] }
+    },
+    {
+      "id": "TC032",
+      "tipoViaje": "multidestino",
+      "tipoRuta": "internacional",
+      "proveedor": "156",
+      "proveedorNombre": "GALILEO NDC",
+      "usarRutaAleatoria": false,
+      "tramos": [
+        { "origen": "BOG", "destino": "CDMX", "fechaSalidaOffset": 20 },
+        { "origen": "CDMX", "destino": "MIA", "fechaSalidaOffset": 25 },
+        { "origen": "MIA", "destino": "BOG", "fechaSalidaOffset": 30 }
+      ],
+      "pasajeros": { "adultos": 3, "ninos": [], "infantes": [] }
+    },
+    {
+      "id": "TC033",
+      "tipoViaje": "multidestino",
+      "tipoRuta": "nacional",
+      "proveedor": "100",
+      "proveedorNombre": "GALILEO",
+      "usarRutaAleatoria": false,
+      "tramos": [
+        { "origen": "BOG", "destino": "BAQ", "fechaSalidaOffset": 21 },
+        { "origen": "BAQ", "destino": "CTG", "fechaSalidaOffset": 27 }
+      ],
+      "pasajeros": { "adultos": 2, "ninos": [{ "edad": 7 }], "infantes": [] }
+    },
+    {
+      "id": "TC034",
+      "tipoViaje": "multidestino",
+      "tipoRuta": "nacional",
+      "proveedor": "157",
+      "proveedorNombre": "JETSMART",
+      "usarRutaAleatoria": false,
+      "tramos": [
+        { "origen": "BOG", "destino": "ADZ", "fechaSalidaOffset": 23 },
+        { "origen": "ADZ", "destino": "BOG", "fechaSalidaOffset": 29 }
+      ],
+      "pasajeros": { "adultos": 3, "ninos": [], "infantes": [] }
+    },
+    {
+      "id": "TC035",
+      "tipoViaje": "multidestino",
+      "tipoRuta": "internacional",
+      "proveedor": "158",
+      "proveedorNombre": "GALILEO JSON",
+      "usarRutaAleatoria": false,
+      "tramos": [
+        { "origen": "BOG", "destino": "UIO", "fechaSalidaOffset": 20 },
+        { "origen": "UIO", "destino": "LIM", "fechaSalidaOffset": 25 },
+        { "origen": "LIM", "destino": "BOG", "fechaSalidaOffset": 30 }
+      ],
+      "pasajeros": { "adultos": 2, "ninos": [{ "edad": 9 }], "infantes": [] }
+    },
+    {
+      "id": "TC036",
+      "tipoViaje": "multidestino",
+      "tipoRuta": "nacional",
+      "proveedor": "161",
+      "proveedorNombre": "WINGO",
+      "usarRutaAleatoria": false,
+      "tramos": [
+        { "origen": "BOG", "destino": "CLO", "fechaSalidaOffset": 20 },
+        { "origen": "CLO", "destino": "MDE", "fechaSalidaOffset": 25 },
+        { "origen": "MDE", "destino": "BOG", "fechaSalidaOffset": 30 }
+      ],
+      "pasajeros": { "adultos": 4, "ninos": [{ "edad": 4 }], "infantes": [] }
+    }
+  ]
+}

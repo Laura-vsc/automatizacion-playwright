@@ -1,0 +1,23 @@
+{
+  "nacional": [
+    { "origen": "BOG", "destino": "MDE" },
+    { "origen": "BOG", "destino": "CTG" },
+    { "origen": "BOG", "destino": "CLO" },
+    { "origen": "MDE", "destino": "CTG" },
+    { "origen": "CLO", "destino": "SMR" },
+    { "origen": "BAQ", "destino": "BOG" },
+    { "origen": "PEI", "destino": "BOG" },
+    { "origen": "BOG", "destino": "LET" },
+    { "origen": "MDE", "destino": "ADZ" }
+  ],
+  "internacional": [
+    { "origen": "BOG", "destino": "MIA" },
+    { "origen": "BOG", "destino": "MAD" },
+    { "origen": "BOG", "destino": "CDMX" },
+    { "origen": "BOG", "destino": "LIM" },
+    { "origen": "BOG", "destino": "SCL" },
+    { "origen": "MDE", "destino": "PTY" },
+    { "origen": "CLO", "destino": "UIO" },
+    { "origen": "BOG", "destino": "NYC" }
+  ]
+}

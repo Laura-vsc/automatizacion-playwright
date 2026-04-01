@@ -1,23 +1,23 @@
 {
   "nacional": [
-    { "origen": "BOG", "destino": "MDE" },
-    { "origen": "BOG", "destino": "CTG" },
-    { "origen": "BOG", "destino": "CLO" },
-    { "origen": "MDE", "destino": "CTG" },
-    { "origen": "CLO", "destino": "SMR" },
-    { "origen": "BAQ", "destino": "BOG" },
-    { "origen": "PEI", "destino": "BOG" },
-    { "origen": "BOG", "destino": "LET" },
-    { "origen": "MDE", "destino": "ADZ" }
+    { "origen": "BOG", "nombreOrigen": "Bogotá, Colombia",       "destino": "MDE", "nombreDestino": "Medellín, Colombia" },
+    { "origen": "BOG", "nombreOrigen": "Bogotá, Colombia",       "destino": "CTG", "nombreDestino": "Cartagena, Colombia" },
+    { "origen": "BOG", "nombreOrigen": "Bogotá, Colombia",       "destino": "CLO", "nombreDestino": "Cali, Colombia" },
+    { "origen": "MDE", "nombreOrigen": "Medellín, Colombia",     "destino": "CTG", "nombreDestino": "Cartagena, Colombia" },
+    { "origen": "CLO", "nombreOrigen": "Cali, Colombia",         "destino": "SMR", "nombreDestino": "Santa Marta, Colombia" },
+    { "origen": "BAQ", "nombreOrigen": "Barranquilla, Colombia", "destino": "BOG", "nombreDestino": "Bogotá, Colombia" },
+    { "origen": "PEI", "nombreOrigen": "Pereira, Colombia",      "destino": "BOG", "nombreDestino": "Bogotá, Colombia" },
+    { "origen": "BOG", "nombreOrigen": "Bogotá, Colombia",       "destino": "LET", "nombreDestino": "Leticia, Colombia" },
+    { "origen": "MDE", "nombreOrigen": "Medellín, Colombia",     "destino": "ADZ", "nombreDestino": "San Andrés, Colombia" }
   ],
   "internacional": [
-    { "origen": "BOG", "destino": "MIA" },
-    { "origen": "BOG", "destino": "MAD" },
-    { "origen": "BOG", "destino": "CDMX" },
-    { "origen": "BOG", "destino": "LIM" },
-    { "origen": "BOG", "destino": "SCL" },
-    { "origen": "MDE", "destino": "PTY" },
-    { "origen": "CLO", "destino": "UIO" },
-    { "origen": "BOG", "destino": "NYC" }
+    { "origen": "BOG", "nombreOrigen": "Bogotá, Colombia",   "destino": "MIA",  "nombreDestino": "Miami, Estados Unidos" },
+    { "origen": "BOG", "nombreOrigen": "Bogotá, Colombia",   "destino": "MAD",  "nombreDestino": "Madrid, España" },
+    { "origen": "BOG", "nombreOrigen": "Bogotá, Colombia",   "destino": "CDMX", "nombreDestino": "Ciudad de México, México" },
+    { "origen": "BOG", "nombreOrigen": "Bogotá, Colombia",   "destino": "LIM",  "nombreDestino": "Lima, Perú" },
+    { "origen": "BOG", "nombreOrigen": "Bogotá, Colombia",   "destino": "SCL",  "nombreDestino": "Santiago, Chile" },
+    { "origen": "MDE", "nombreOrigen": "Medellín, Colombia", "destino": "PTY",  "nombreDestino": "Ciudad de Panamá, Panamá" },
+    { "origen": "CLO", "nombreOrigen": "Cali, Colombia",     "destino": "UIO",  "nombreDestino": "Quito, Ecuador" },
+    { "origen": "BOG", "nombreOrigen": "Bogotá, Colombia",   "destino": "NYC",  "nombreDestino": "Nueva York, Estados Unidos" }
   ]
 }

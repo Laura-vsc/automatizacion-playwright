@@ -8,7 +8,8 @@
     { "origen": "BAQ", "nombreOrigen": "Barranquilla, Colombia", "destino": "BOG", "nombreDestino": "Bogotá, Colombia" },
     { "origen": "PEI", "nombreOrigen": "Pereira, Colombia",      "destino": "BOG", "nombreDestino": "Bogotá, Colombia" },
     { "origen": "BOG", "nombreOrigen": "Bogotá, Colombia",       "destino": "LET", "nombreDestino": "Leticia, Colombia" },
-    { "origen": "MDE", "nombreOrigen": "Medellín, Colombia",     "destino": "ADZ", "nombreDestino": "San Andrés, Colombia" }
+    { "origen": "MDE", "nombreOrigen": "Medellín, Colombia",     "destino": "ADZ", "nombreDestino": "San Andrés, Colombia" },
+    { "origen": "BOG", "nombreOrigen": "Bogotá, Colombia",       "destino": "UIB", "nombreDestino": "Quibdo, Colombia" }
   ],
   "internacional": [
     { "origen": "BOG", "nombreOrigen": "Bogotá, Colombia",   "destino": "MIA",  "nombreDestino": "Miami, Estados Unidos" },
@@ -18,6 +19,7 @@
     { "origen": "BOG", "nombreOrigen": "Bogotá, Colombia",   "destino": "SCL",  "nombreDestino": "Santiago, Chile" },
     { "origen": "MDE", "nombreOrigen": "Medellín, Colombia", "destino": "PTY",  "nombreDestino": "Ciudad de Panamá, Panamá" },
     { "origen": "CLO", "nombreOrigen": "Cali, Colombia",     "destino": "UIO",  "nombreDestino": "Quito, Ecuador" },
-    { "origen": "BOG", "nombreOrigen": "Bogotá, Colombia",   "destino": "NYC",  "nombreDestino": "Nueva York, Estados Unidos" }
+    { "origen": "BOG", "nombreOrigen": "Bogotá, Colombia",   "destino": "NYC",  "nombreDestino": "Nueva York, Estados Unidos" },
+    { "origen": "CLO", "nombreOrigen": "Cali, Colombia",    "destino": "MAD",  "nombreDestino": "Madrid, España" }
   ]
 }

@@ -94,8 +94,8 @@
       "proveedor": "93",
       "proveedorNombre": "KIU",
       "usarRutaAleatoria": true,
-      "origen": null,
-      "destino": null,
+      "origen": "BOG",
+      "destino": "UIB",
       "fechas": { "fechaSalidaOffset": 24, "fechaRegresoOffset": 29 },
       "pasajeros": { "adultos": 1, "ninos": [], "infantes": [] }
     },

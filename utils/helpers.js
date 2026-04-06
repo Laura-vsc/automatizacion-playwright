@@ -1,8 +1,6 @@
 const routes = require('../data/routes.json');
 
-// ─────────────────────────────────────────────
 // COOKIES
-// ─────────────────────────────────────────────
 
 async function aceptarCookies(page) {
   try {
@@ -16,6 +14,105 @@ async function aceptarCookies(page) {
   }
 }
 
+async function prepararPaginaInicial(page, baseURL = 'https://aurorapru-qa.grupoaviatur.com') {
+  await page.goto(baseURL);
+  await aceptarCookies(page);
+  await page.waitForTimeout(2000);
+}
+
+async function llenarCiudad(page, selector, codigoIata, nombreCiudad) {
+  console.log(`Llenando campo ${selector} con código: ${codigoIata}, ciudad: ${nombreCiudad}`);
+  
+  const campo = page.locator(selector);
+  
+  try {
+    // Esperar a que el campo sea visible e interactuable
+    await campo.waitFor({ state: 'visible', timeout: 10000 });
+    console.log(`Campo ${selector} visible`);
+    
+    await campo.click();
+    console.log(`Click en ${selector}`);
+    await page.waitForTimeout(500);
+
+    // // Limpiar el campo
+    // await campo.fill('');
+    // console.log(`Campo ${selector} limpiado`);
+    // await page.waitForTimeout(300);
+
+    // Escribir el código IATA
+    await campo.type(codigoIata, { delay: 100 });
+    console.log(`Texto escrito en ${selector}: ${codigoIata}`);
+    await page.waitForTimeout(3000);
+
+    // Esperar a que aparezca la lista de opciones
+    const lista = page.locator('.text-secondary');
+    console.log(`Esperando lista de opciones...`);
+    await lista.first().waitFor({ state: 'visible', timeout: 10000 });
+    console.log(`Lista de opciones visible`);
+
+    // Contar opciones disponibles
+    const count = await lista.count();
+    console.log(`${count} opciones encontradas`);
+
+    // Buscar y seleccionar la opción exacta
+    const opcionExacta = lista.filter({ hasText: nombreCiudad }).first();
+    console.log(`Buscando opción exacta: ${nombreCiudad}`);
+    
+    await opcionExacta.waitFor({ state: 'visible', timeout: 10000 });
+    console.log(`Opción encontrada: ${nombreCiudad}`);
+    
+    await opcionExacta.click();
+    console.log(`Opción seleccionada: ${nombreCiudad}`);
+    await page.waitForTimeout(500);
+    
+  } catch (error) {
+    console.error(`Error en llenarCiudad para ${selector}:`, error.message);
+    throw error;
+  }
+}
+
+async function seleccionarFechaCalendario(page, fecha) {
+  const [dia] = fecha.split('/');
+  const diaNum = parseInt(dia, 10);
+
+  const diasCalendario = page.locator('.js-day-in-calendar');
+  await diasCalendario.first().waitFor({ state: 'visible', timeout: 5000 });
+
+  const diaTarget = diasCalendario.filter({ hasText: new RegExp(`^${diaNum}$`) }).first();
+  await diaTarget.waitFor({ state: 'visible', timeout: 5000 });
+  await diaTarget.click();
+  await page.waitForTimeout(500);
+}
+
+async function completarBusqueda(page, tc) {
+  const ruta = getRouteForTC(tc);
+  const fechas = getFechasForTC(tc);
+
+  await llenarCiudad(page, '#js-iata-code-origin', ruta.origen, ruta.nombreOrigen);
+  await llenarCiudad(page, '#js-iata-code-destination', ruta.destino, ruta.nombreDestino);
+
+  if (tc.tipoViaje === 'roundtrip') {
+    await seleccionarFechaCalendario(page, fechas.fechaSalida);
+    await seleccionarFechaCalendario(page, fechas.fechaRegreso);
+  } else if (tc.tipoViaje === 'oneway') {
+    await seleccionarFechaCalendario(page, fechas.fechaSalida);
+  } else if (tc.tipoViaje === 'multidestino') {
+    for (const tramo of fechas) {
+      await llenarCiudad(page, '#js-origin-input', tramo.origen, tramo.nombreOrigen);
+      await llenarCiudad(page, '#js-destination-input-iata', tramo.destino, tramo.nombreDestino);
+      await seleccionarFechaCalendario(page, tramo.fecha);
+      await page.waitForTimeout(500);
+    }
+  }
+
+  await buscarVuelos(page);
+  await seleccionarProveedor(page, tc.proveedor);
+}
+async function buscarVuelos(page) {
+  await page.click('#js-button-search-flights');
+  await page.waitForTimeout(5000);
+}
+
 // RUTAS
 
 /**
@@ -24,12 +121,22 @@ async function aceptarCookies(page) {
  * - Si es false → usa origen/destino definidos en el TC
  */
 function getRouteForTC(tc) {
+  const rutas = routes[tc.tipoRuta] || [];
+
   if (tc.usarRutaAleatoria) {
-    const rutas = routes[tc.tipoRuta];
     const idx = Math.floor(Math.random() * rutas.length);
     return rutas[idx];
   }
-  return { origen: tc.origen, destino: tc.destino };
+
+  const ruta = rutas.find(r => r.origen === tc.origen && r.destino === tc.destino)
+    || rutas.find(r => r.origen === tc.destino && r.destino === tc.origen);
+
+  return ruta || {
+    origen: tc.origen,
+    destino: tc.destino,
+    nombreOrigen: tc.origen,
+    nombreDestino: tc.destino
+  };
 }
 
 function getTramosForTC(tc) {
@@ -163,5 +270,10 @@ module.exports = {
   generarPasajerosAleatorios,
   getTotalPasajeros,
   getTCsPorSeccion,
-  getTCById
+  getTCById,
+  prepararPaginaInicial,
+  buscarVuelos,
+  llenarCiudad,
+  seleccionarFechaCalendario,
+  completarBusqueda
 };

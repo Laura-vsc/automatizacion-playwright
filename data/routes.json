@@ -14,7 +14,7 @@
   "internacional": [
     { "origen": "BOG", "nombreOrigen": "Bogotá, Colombia",   "destino": "MIA",  "nombreDestino": "Miami, Estados Unidos" },
     { "origen": "BOG", "nombreOrigen": "Bogotá, Colombia",   "destino": "MAD",  "nombreDestino": "Madrid, España" },
-    { "origen": "BOG", "nombreOrigen": "Bogotá, Colombia",   "destino": "CDMX", "nombreDestino": "Ciudad de México, México" },
+    { "origen": "BOG", "nombreOrigen": "Bogotá, Colombia",   "destino": "CUN", "nombreDestino": "Cancun, México" },
     { "origen": "BOG", "nombreOrigen": "Bogotá, Colombia",   "destino": "LIM",  "nombreDestino": "Lima, Perú" },
     { "origen": "BOG", "nombreOrigen": "Bogotá, Colombia",   "destino": "SCL",  "nombreDestino": "Santiago, Chile" },
     { "origen": "MDE", "nombreOrigen": "Medellín, Colombia", "destino": "PTY",  "nombreDestino": "Ciudad de Panamá, Panamá" },

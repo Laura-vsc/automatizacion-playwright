@@ -1,5 +1,10 @@
 const routes = require('../data/routes.json');
 
+// General logging function
+function log(message) {
+  console.log(message);
+}
+
 // COOKIES
 
 async function aceptarCookies(page) {
@@ -7,10 +12,10 @@ async function aceptarCookies(page) {
     const boton = page.locator('#js-buttonAcceptCookies');
     if (await boton.isVisible({ timeout: 5000 })) {
       await boton.click();
-      console.log('Cookies aceptadas');
+      log('Cookies aceptadas');
     }
   } catch {
-    console.log('No apareció el modal de cookies');
+    log('No apareció el modal de cookies');
   }
 }
 
@@ -27,46 +32,46 @@ async function llenarCiudad(page, selector, codigoIata, nombreCiudad) {
   
   try {
     // Esperar a que el campo sea visible e interactuable
-    await campo.waitFor({ state: 'visible', timeout: 10000 });
-    console.log(`Campo ${selector} visible`);
+    // campo.waitFor({ state: 'visible' });
+    log(`Campo ${selector} visible`);
     
-    await campo.click();
-    console.log(`Click en ${selector}`);
+    campo.click();
+    log(`Click en ${selector}`);
     await page.waitForTimeout(500);
 
     // // Limpiar el campo
     // await campo.fill('');
-    // console.log(`Campo ${selector} limpiado`);
+    // log(`Campo ${selector} limpiado`);
     // await page.waitForTimeout(300);
 
     // Escribir el código IATA
     await campo.type(codigoIata, { delay: 100 });
-    console.log(`Texto escrito en ${selector}: ${codigoIata}`);
+    log(`Texto escrito en ${selector}: ${codigoIata}`);
     await page.waitForTimeout(3000);
 
     // Esperar a que aparezca la lista de opciones
     const lista = page.locator('.text-secondary');
-    console.log(`Esperando lista de opciones...`);
+    log(`Esperando lista de opciones...`);
     await lista.first().waitFor({ state: 'visible', timeout: 10000 });
-    console.log(`Lista de opciones visible`);
+    log(`Lista de opciones visible`);
 
     // Contar opciones disponibles
     const count = await lista.count();
-    console.log(`${count} opciones encontradas`);
+    log(`${count} opciones encontradas`);
 
     // Buscar y seleccionar la opción exacta
     const opcionExacta = lista.filter({ hasText: nombreCiudad }).first();
-    console.log(`Buscando opción exacta: ${nombreCiudad}`);
+    log(`Buscando opción exacta: ${nombreCiudad}`);
     
     await opcionExacta.waitFor({ state: 'visible', timeout: 10000 });
-    console.log(`Opción encontrada: ${nombreCiudad}`);
+    log(`Opción encontrada: ${nombreCiudad}`);
     
     await opcionExacta.click();
-    console.log(`Opción seleccionada: ${nombreCiudad}`);
+    log(`Opción seleccionada: ${nombreCiudad}`);
     await page.waitForTimeout(500);
     
   } catch (error) {
-    console.error(`Error en llenarCiudad para ${selector}:`, error.message);
+    log(`Error en llenarCiudad para ${selector}: ${error.message}`);
     throw error;
   }
 }
@@ -80,7 +85,7 @@ async function seleccionarFechaCalendario(page, fecha) {
 
   const diaTarget = diasCalendario.filter({ hasText: new RegExp(`^${diaNum}$`) }).first();
   await diaTarget.waitFor({ state: 'visible', timeout: 5000 });
-  await diaTarget.click();
+  await diaTarget.click(
   await page.waitForTimeout(500);
 }
 

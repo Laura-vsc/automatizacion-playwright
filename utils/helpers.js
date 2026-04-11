@@ -22,7 +22,7 @@ async function aceptarCookies(page) {
 async function prepararPaginaInicial(page, baseURL = 'https://aurorapru-qa.grupoaviatur.com') {
   await page.goto(baseURL);
   await aceptarCookies(page);
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(5000);
 }
 
 async function llenarCiudad(page, selector, codigoIata, nombreCiudad) {
@@ -37,7 +37,7 @@ async function llenarCiudad(page, selector, codigoIata, nombreCiudad) {
     
     campo.click();
     log(`Click en ${selector}`);
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(5000);
 
     // // Limpiar el campo
     // await campo.fill('');
@@ -47,7 +47,7 @@ async function llenarCiudad(page, selector, codigoIata, nombreCiudad) {
     // Escribir el código IATA
     await campo.type(codigoIata, { delay: 100 });
     log(`Texto escrito en ${selector}: ${codigoIata}`);
-    await page.waitForTimeout(3000);
+    await page.waitForTimeout(300);
 
     // Esperar a que aparezca la lista de opciones
     const lista = page.locator('.text-secondary');
@@ -85,8 +85,8 @@ async function seleccionarFechaCalendario(page, fecha) {
 
   const diaTarget = diasCalendario.filter({ hasText: new RegExp(`^${diaNum}$`) }).first();
   await diaTarget.waitFor({ state: 'visible', timeout: 5000 });
-  await diaTarget.click(
-  await page.waitForTimeout(500);
+  await diaTarget.click();
+  await page.waitForTimeout(5000);
 }
 
 async function completarBusqueda(page, tc) {

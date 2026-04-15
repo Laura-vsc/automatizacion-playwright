@@ -50,7 +50,7 @@ async function llenarCiudad(page, selector, codigoIata, nombreCiudad) {
     await page.waitForTimeout(300);
 
     // Esperar a que aparezca la lista de opciones
-    const lista = page.locator('.text-secondary');
+    const lista = page.locator('li');
     log(`Esperando lista de opciones...`);
     await lista.first().waitFor({ state: 'visible', timeout: 10000 });
     log(`Lista de opciones visible`);
@@ -68,7 +68,7 @@ async function llenarCiudad(page, selector, codigoIata, nombreCiudad) {
     
     await opcionExacta.click();
     log(`Opción seleccionada: ${nombreCiudad}`);
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(1000);
     
   } catch (error) {
     log(`Error en llenarCiudad para ${selector}: ${error.message}`);
@@ -83,9 +83,52 @@ async function seleccionarFechaCalendario(page, fecha) {
   const diasCalendario = page.locator('.js-day-in-calendar');
   await diasCalendario.first().waitFor({ state: 'visible', timeout: 5000 });
 
-  const diaTarget = diasCalendario.filter({ hasText: new RegExp(`^${diaNum}$`) }).first();
+  const diaTarget = page.locator('.js-day-in-calendar').filter({ hasText: new RegExp(`^${diaNum}$`) }).nth(1);
   await diaTarget.waitFor({ state: 'visible', timeout: 5000 });
   await diaTarget.click();
+}
+
+async function ajustarContadorPasajeros(page, classProperty, objetivo) {
+  const containerSelector = `#js-home-select-passengers div[data-classproperty='${classProperty}']`;
+  const container = page.locator(containerSelector).first();
+  await container.waitFor({ state: 'visible', timeout: 5000 });
+
+  const addButton = container.locator("button[data-action='add']").first();
+  const removeButton = container.locator("button[data-action='remove']").first();
+  let valor = 0;
+
+  const contador = container.locator('text=/\\d+/').first();
+  if (await contador.count()) {
+    const text = await contador.innerText();
+    valor = parseInt(text.match(/\\d+/)?.[0] || '0', 10);
+  }
+
+  while (valor < objetivo && await addButton.count()) {
+    await addButton.click();
+    valor += 1;
+    await page.waitForTimeout(300);
+  }
+
+  while (valor > objetivo && await removeButton.count()) {
+    await removeButton.click();
+    valor -= 1;
+    await page.waitForTimeout(300);
+  }
+}
+
+async function seleccionarPasajeros(page, pasajeros) {
+  const { adultos, ninos = [], infantes = [] } = pasajeros;
+
+  const modal = page.locator('text=Pasajeros y cabina');
+  await modal.waitFor({ state: 'visible', timeout: 10000 });
+  await page.waitForTimeout(500);
+
+  await ajustarContadorPasajeros(page, 'amountAdults', adultos);
+  await ajustarContadorPasajeros(page, 'amountChildren', ninos.length);
+  await ajustarContadorPasajeros(page, 'amountInfants', infantes.length);
+
+  // Hacer click en el botón de buscar para cerrar el modal y buscar vuelos
+  await page.click('#js-button-search-flights');
   await page.waitForTimeout(5000);
 }
 
@@ -96,20 +139,31 @@ async function completarBusqueda(page, tc) {
   await llenarCiudad(page, '#js-iata-code-origin', ruta.origen, ruta.nombreOrigen);
   await llenarCiudad(page, '#js-iata-code-destination', ruta.destino, ruta.nombreDestino);
 
+  await page.waitForTimeout(800);
+
   if (tc.tipoViaje === 'roundtrip') {
+    // Abrir calendario
+    await page.locator('.js-change-date-departure').click();
+    await page.waitForTimeout(1000);
     await seleccionarFechaCalendario(page, fechas.fechaSalida);
     await seleccionarFechaCalendario(page, fechas.fechaRegreso);
   } else if (tc.tipoViaje === 'oneway') {
+    await page.locator('.js-change-date-departure').click();
+    await page.waitForTimeout(1000);
     await seleccionarFechaCalendario(page, fechas.fechaSalida);
   } else if (tc.tipoViaje === 'multidestino') {
     for (const tramo of fechas) {
       await llenarCiudad(page, '#js-origin-input', tramo.origen, tramo.nombreOrigen);
       await llenarCiudad(page, '#js-destination-input-iata', tramo.destino, tramo.nombreDestino);
+      await page.locator('.js-change-date-departure').click();
+      await page.waitForTimeout(1000);
       await seleccionarFechaCalendario(page, tramo.fecha);
       await page.waitForTimeout(500);
     }
   }
 
+  await seleccionarPasajeros(page, tc.pasajeros);
+  await page.waitForTimeout(2000); // Esperar a que el modal de pasajeros se cierre
   await buscarVuelos(page);
   await seleccionarProveedor(page, tc.proveedor);
 }

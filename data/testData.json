@@ -23,7 +23,7 @@
       "proveedorNombre": "AMADEUS",
       "usarRutaAleatoria": false,
       "origen": "BOG",
-      "destino": "MDE",
+      "destino": "CLO",
       "fechas": { "fechaSalidaOffset": 20, "fechaRegresoOffset": 25 },
       "pasajeros": { "adultos": 2, "ninos": [{ "edad": 7 }], "infantes": [] }
     },
